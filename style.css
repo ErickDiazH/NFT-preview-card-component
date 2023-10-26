@@ -1,0 +1,188 @@
+
+
+  :root {
+    /* Primary */
+    --soft-blue-color: hsl(215, 51%, 70%);
+    --cyan-color: hsl(178, 100%, 50%);
+
+    /* Neutral */
+    --main-bg-color: hsl(217, 54%, 11%);
+    --card-bg-color: hsl(216, 50%, 16%);
+    --divider-color: hsl(215, 32%, 27%);
+    --white-color: hsl(0, 0%, 100%);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--main-bg-color);
+    font-family: 'Outfit', sans-serif;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--white-color);
+  }
+
+  a:hover {
+    color: var(--cyan-color);
+  }
+
+  .card-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    border: none;
+    border-radius: 16px;
+    margin: 0 24px;
+    padding: 24px;
+    background-color: var(--card-bg-color);
+  }
+
+  .card-image-container {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card-image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .card-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    transition: 0.5s all ease;
+  }
+
+  .card-image-container:hover::before {
+    background-color: var(--cyan-color);
+    opacity: 0.5;
+  }
+
+  .card-image-container::after {
+    content: url('./images/icon-view.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.5s all ease;
+  }
+
+  .card-image-container:hover::after {
+    opacity: 1;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-content-title {
+    font-size: 20px;
+    margin-top: 16px;
+  }
+
+  .card-content-description {
+    color: var(--soft-blue-color);
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .card-content-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .content-info-ethereum {
+    color: var(--cyan-color);
+    font-weight: 400;
+  }
+
+  .content-info-clock {
+    color: var(--soft-blue-color);
+  }
+
+  .divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--divider-color);
+    width: 100%;
+  }
+
+  .card-content-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .card-content-footer img {
+    width: 40px;
+    border: 1px solid var(--white-color);
+    border-radius: 100%;
+  }
+
+  .card-content-footer > h3 {
+    color: var(--white-color);
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .card-content-footer h3 > span {
+    color: var(--soft-blue-color);
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+
+  @media (min-width: 1440px) {
+
+    p {
+      font-size: 18px;
+    }
+
+    .card {
+      max-width: 350px;
+      margin: 0;
+    }
+
+    .card-content-title {
+      font-size: 24px;
+    }
+
+    .card-content-footer img {
+      width: 30px;
+    }
+  }
